@@ -1,0 +1,18 @@
+{% extends 'events/base.html' %}
+{% block content %}
+
+<a href="{% url 'event_create' %}" class="bg-green-500 text-white px-4 py-2 rounded">+ Add Event</a>
+
+<ul class="mt-4 space-y-4">
+  {% for event in events %}
+    <li class="bg-white p-4 shadow rounded">
+      <strong>{{ event.name }}</strong><br>
+     {{ event.location }} | {{ event.date }} {{ event.time }}<br>
+      Category: {{ event.category.name }}<br>
+      <a href="{% url 'event_update' event.pk %}" class="text-blue-500">Edit</a> |
+      <a href="{% url 'event_delete' event.pk %}" class="text-red-500">Delete</a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
