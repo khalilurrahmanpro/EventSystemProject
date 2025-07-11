@@ -1,6 +1,16 @@
 {% extends 'events/base.html' %}
 {% block content %}
 
+<form method="get" class="mb-4 flex flex-wrap gap-2 items-center bg-white p-4 rounded shadow">
+    <input type="text" name="category" placeholder="Category ID"
+        class="border px-2 py-1 rounded w-32" value="{{ request.GET.category }}">
+    <input type="date" name="start" class="border px-2 py-1 rounded w-40" value="{{ request.GET.start }}">
+    <input type="date" name="end" class="border px-2 py-1 rounded w-40" value="{{ request.GET.end }}">
+    <button type="submit" class="bg-blue-500 text-white px-3 py-1 rounded">Filter</button>
+    <a href="/" class="text-sm text-gray-500 ml-2">Clear</a>
+</form>
+
+
 <a href="{% url 'event_create' %}" class="bg-green-500 text-white px-4 py-2 rounded">+ Add Event</a>
 
 <ul class="mt-4 space-y-4">
